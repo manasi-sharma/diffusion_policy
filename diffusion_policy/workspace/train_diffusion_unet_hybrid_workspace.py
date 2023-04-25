@@ -72,13 +72,13 @@ class TrainDiffusionUnetHybridWorkspace(BaseWorkspace):
         dataset: BaseImageDataset
         dataset = hydra.utils.instantiate(cfg.task.dataset)
         assert isinstance(dataset, BaseImageDataset)
-        import pdb;pdb.set_trace()
+        cfg.dataloader.num_workers = 4
         train_dataloader = DataLoader(dataset, **cfg.dataloader)
         normalizer = dataset.get_normalizer()
 
         # configure validation dataset
         val_dataset = dataset.get_validation_dataset()
-        import pdb;pdb.set_trace()
+        cfg.val_dataloader.num_workers = 4
         val_dataloader = DataLoader(val_dataset, **cfg.val_dataloader)
 
         self.model.set_normalizer(normalizer)
