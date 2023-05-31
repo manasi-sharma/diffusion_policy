@@ -244,6 +244,7 @@ class TrainDiffusionUnetLowdimWorkspace(BaseWorkspace):
                         obs_dict = {'obs': batch['obs']}
                         gt_action = batch['action']
                         
+                        import pdb;pdb.set_trace()
                         result = policy.predict_action(obs_dict)
                         if cfg.pred_action_steps_only:
                             pred_action = result['action']

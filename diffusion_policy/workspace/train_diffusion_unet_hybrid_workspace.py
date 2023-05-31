@@ -244,6 +244,7 @@ class TrainDiffusionUnetHybridWorkspace(BaseWorkspace):
                         obs_dict = batch['obs']
                         gt_action = batch['action']
                         
+                        import pdb;pdb.set_trace()
                         result = policy.predict_action(obs_dict)
                         pred_action = result['action_pred']
                         mse = torch.nn.functional.mse_loss(pred_action, gt_action)
