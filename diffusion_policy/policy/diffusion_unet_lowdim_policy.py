@@ -101,6 +101,7 @@ class DiffusionUnetLowdimPolicy(BaseLowdimPolicy):
         obs_dict: must include "obs" key
         result: must include "action" key
         """
+        import pdb;pdb.set_trace()
 
         assert 'obs' in obs_dict
         assert 'past_action' not in obs_dict # not implemented yet
